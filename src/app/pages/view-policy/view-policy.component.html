@@ -1,0 +1,98 @@
+<div class="dashboard-wrapper bg-light min-vh-100">
+  <nav class="navbar shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" routerLink="/">Insurance Policy Management System</a>
+      <div class="nav-links">
+        <button class="logout-btn" routerLink="/">Logout</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container my-5" *ngIf="policy">
+    <h2 class="fw-bold mb-4 primary-text">View Policy</h2>
+    <p class="lead mb-4">Detailed information about your policy</p>
+
+    <!-- 📄 Policy Information -->
+    <div class="card p-4 shadow-sm mb-5">
+      <h5 class="fw-bold mb-3">Policy Information</h5>
+      <div class="table-responsive">
+        <table class="table">
+          <tbody>
+            <tr><th>Policy ID</th><td>{{ policy.policyId }}</td></tr>
+            <tr><th>Policy Type</th><td>{{ policy.policyType }}</td></tr>
+            <tr><th>Policy Start Date</th><td>{{ policy.startDate | date }}</td></tr>
+            <tr><th>Policy End Date</th><td>{{ policy.endDate | date }}</td></tr>
+            <tr><th>Policy Term</th><td>{{ policy.term }}</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 📑 Coverage Information -->
+    <div class="card p-4 shadow-sm mb-5">
+      <h5 class="fw-bold mb-3">Coverage Information</h5>
+      <div class="table-responsive">
+        <table class="table">
+          <tbody>
+            <tr><th>Coverage Type</th><td>{{ policy.coverageType }}</td></tr>
+            <tr><th>Coverage Amount</th><td>{{ policy.coverageAmount | currency }}</td></tr>
+            <tr><th>Premium Amount</th><td>{{ policy.premiumAmount | currency }}</td></tr>
+            <tr><th>Payment Frequency</th><td>{{ policy.paymentFrequency }}</td></tr>
+            <tr><th>Beneficiaries</th><td>{{ policy.beneficiaries.join(', ') }}</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 💰 Financial Information (Customers Only) -->
+    <div class="card p-4 shadow-sm mb-5" *ngIf="!isAdmin">
+      <h5 class="fw-bold mb-3">Financial Information</h5>
+      <div class="table-responsive">
+        <table class="table">
+          <tbody>
+            <tr>
+              <th>Payment History</th>
+              <td>
+                <ul>
+                  <li *ngFor="let p of policy.paymentHistory">
+                    {{ p.date | date }} – {{ p.amount | currency }}
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr><th>Outstanding Payments</th><td>{{ policy.outstanding | currency }}</td></tr>
+            <tr><th>Total Paid Amount</th><td>{{ policy.totalPaid | currency }}</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 📝 Claim Information (Customers Only) -->
+    <div class="card p-4 shadow-sm mb-5" *ngIf="!isAdmin">
+      <h5 class="fw-bold mb-3">Claim Information</h5>
+      <div class="table-responsive">
+        <table class="table">
+          <tbody>
+            <tr><th>Claim Status</th><td>{{ policy.claimStatus }}</td></tr>
+            <tr>
+              <th>Claim History</th>
+              <td>
+                <ul>
+                  <li *ngFor="let c of policy.claimHistory">
+                    {{ c.date | date }} – {{ c.amount | currency }} ({{ c.status }})
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr><th>Next Claim Period</th><td>{{ policy.nextClaimPeriod | date }}</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Loading or No Policy Found -->
+  <div class="container my-5" *ngIf="!policy">
+    <p>Loading policy details…</p>
+  </div>
+</div>

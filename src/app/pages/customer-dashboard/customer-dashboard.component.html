@@ -1,0 +1,62 @@
+<div class="dashboard-wrapper bg-light min-vh-100">
+  <nav class="navbar shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" routerLink="/">Insurance Policy Management System</a>
+
+      <div class="nav-links">
+        <button class="logout-btn" routerLink="/">Logout</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container my-5">
+    <h2 class="fw-bold mb-4 primary-text">Customer Dashboard</h2>
+    <p class="lead mb-4">Welcome back to your Insurance Policy Management Portal.</p>
+
+    <!-- Search and Edit Section -->
+    <div class="card p-4 shadow-sm mb-5">
+      <h5 class="fw-bold mb-3">Quick Actions</h5>
+      <div class="search-edit">
+        <input type="text" class="form-control" placeholder="Search by Policy ID, Customer Name..." />
+        <div class="buttons">
+          <button class="btn primary-btn">Search</button>
+          <button class="btn outline-primary-btn" routerLink="/edit-profile">Edit Profile</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- My Policies Table -->
+    <div class="card p-4 shadow-sm">
+      <h5 class="fw-bold mb-3">My Policies</h5>
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Policy ID</th>
+              <th>Policy Name</th>
+              <th>Policy Term</th>
+              <th>Premium Amount</th>
+              <th>Actions</th> <!-- ✅ Added Actions Column -->
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Example static row, dynamic data will come later -->
+            <tr>
+              <td>12345</td>
+              <td>Health Insurance</td>
+              <td>5 Years</td>
+              <td>$400/year</td>
+              <td>
+                <div class="action-buttons">
+                  <button class="btn small-btn outline-primary-btn" routerLink="/view-policy/12345">View Policy</button>
+                </div>
+              </td>
+            </tr>
+            <!-- More rows dynamically... -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,87 @@
+<div class="dashboard-wrapper">
+  <nav class="navbar">
+    <div class="container">
+      <a class="navbar-brand" routerLink="/">Insurance Policy Management System</a>
+      <div class="nav-links">
+        <button class="logout-btn" routerLink="/">Logout</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container main-content">
+    <h2 class="page-title">Statistics</h2>
+
+    <div class="card form-card">
+      <div class="row">
+        <!-- Customer Stats -->
+        <div class="col">
+          <div class="stat-card">
+            <h5>Total Customers</h5>
+            <h3>{{ numOfCustomers }}</h3>
+            <p>Total number of customers in the system</p>
+          </div>
+        </div>
+
+        <!-- Total Policies -->
+        <div class="col">
+          <div class="stat-card">
+            <h5>Total Policies</h5>
+            <h3>{{ totalPolicies }}</h3>
+            <p>Number of policies in the system</p>
+          </div>
+        </div>
+
+        <!-- Active Policies -->
+        <div class="col">
+          <div class="stat-card">
+            <h5>Active Policies</h5>
+            <h3>{{ activePolicies }}</h3>
+            <p>Policies that are currently active</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Total Claims -->
+      <div class="row">
+        <div class="col">
+          <div class="stat-card">
+            <h5>Total Claims</h5>
+            <h3>{{ totalClaims }}</h3>
+            <p>Total claims filed in the system</p>
+          </div>
+        </div>
+
+        <!-- Active Claims -->
+        <div class="col">
+          <div class="stat-card">
+            <h5>Active Claims</h5>
+            <h3>{{ activeClaims }}</h3>
+            <p>Claims that are being processed</p>
+          </div>
+        </div>
+
+        <!-- Pending Claims -->
+        <div class="col">
+          <div class="stat-card">
+            <h5>Pending Claims</h5>
+            <h3>{{ pendingClaims }}</h3>
+            <p>Claims that are pending review</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Charts Section -->
+      <div class="chart-section">
+        <h4 class="section-title">Policy Type Distribution</h4>
+        <div class="chart-container">
+          <canvas id="policyTypeChart"></canvas>
+        </div>
+
+        <h4 class="section-title">Claim Status Overview</h4>
+        <div class="chart-container">
+          <canvas id="claimStatusChart"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
