@@ -1,0 +1,79 @@
+<div class="container">
+  <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+    <h2>Register</h2>
+    <div>
+      <label for="name">Name</label>
+      <input id="name" type="text" formControlName="name" />
+      <div *ngIf="registerForm.get('name')?.invalid && registerForm.get('name')?.touched">
+        <small>Name is required.</small>
+      </div>
+    </div>
+
+    <div>
+      <label for="dateOfBirth">Date of Birth</label>
+      <input id="dateOfBirth" type="date" formControlName="dateOfBirth" />
+      <div *ngIf="registerForm.get('dateOfBirth')?.invalid && registerForm.get('dateOfBirth')?.touched">
+        <small>Date of Birth is required.</small>
+      </div>
+    </div>
+
+
+
+    <div>
+      <label for="email">Email</label>
+      <input id="email" type="email" formControlName="email" />
+      <div *ngIf="email?.invalid && email?.touched">
+        <small *ngIf="email?.hasError('required')">Email is required.</small>
+        <small *ngIf="email?.hasError('email')">Please enter a valid email.</small>
+      </div>
+    </div>
+    <div>
+      <label for="aadhaarCard">Aadhaar Card</label>
+      <input id="aadhaarCard" type="text" formControlName="aadhaarCard" maxlength="12" />
+      <div *ngIf="registerForm.get('aadhaarCard')?.invalid && registerForm.get('aadhaarCard')?.touched">
+        <small *ngIf="registerForm.get('aadhaarCard')?.hasError('required')">Aadhaar is required.</small>
+        <small *ngIf="registerForm.get('aadhaarCard')?.hasError('pattern')">Enter valid 12-digit Aadhaar number.</small>
+      </div>
+    </div>
+    <div>
+      <label for="phoneNumber">Phone Number</label>
+      <input id="phoneNumber" type="text" formControlName="phoneNumber" maxlength="10" />
+      <div *ngIf="registerForm.get('phoneNumber')?.invalid && registerForm.get('phoneNumber')?.touched">
+        <small *ngIf="registerForm.get('phoneNumber')?.hasError('required')">Phone number is required.</small>
+        <small *ngIf="registerForm.get('phoneNumber')?.hasError('pattern')">Enter a valid 10-digit Indian phone number.</small>
+      </div>
+    </div>
+
+    <div>
+      <label for="password">Password</label>
+      <input id="password" type="password" formControlName="password" />
+      <div *ngIf="password?.invalid && password?.touched">
+        <small *ngIf="password?.hasError('required')">Password is required.</small>
+        <small *ngIf="password?.hasError('invalidPassword')">Password must be at least 8 characters long, with at least one digit and one special character.</small>
+      </div>
+    </div>
+
+    <div>
+      <label for="confirmPassword">Confirm Password</label>
+      <input id="confirmPassword" type="password" formControlName="confirmPassword" />
+      <div *ngIf="confirmPassword?.invalid && confirmPassword?.touched">
+        <small *ngIf="confirmPassword?.hasError('required')">Confirm password is required.</small>
+        <small *ngIf="confirmPassword?.hasError('mismatch')">Passwords do not match.</small>
+      </div>
+    </div>
+
+    <div>
+      <label for="role">Role</label>
+      <select id="role" formControlName="role">
+        <option value="user">User</option>
+        <option value="admin">Admin</option>
+      </select>
+    </div>
+
+    <button type="submit" [disabled]="registerForm.invalid">Register</button>
+
+    <div *ngIf="error" class="error">
+      {{ error }}
+    </div>
+  </form>
+</div>
