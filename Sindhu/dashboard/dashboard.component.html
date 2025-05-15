@@ -1,0 +1,53 @@
+<h2>Welcome, {{ user.name }}!</h2>
+
+<table border="1" cellpadding="8" cellspacing="0" style="width: 100%; margin-bottom: 20px;">
+  <thead>
+    <tr>
+      <th colspan="2" style="text-align:left;">User Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Email</strong></td>
+      <td>{{ user.email }}</td>
+    </tr>
+    <tr>
+      <td><strong>Phone</strong></td>
+      <td>{{ user.phoneNumber }}</td>
+    </tr>
+    <tr>
+      <td><strong>Aadhaar</strong></td>
+      <td>{{ user.aadhaarCard }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<table border="1" cellpadding="8" cellspacing="0" style="width: 100%;">
+  <thead>
+    <tr>
+      <th colspan="5" style="text-align:left;">Your Policies</th>
+    </tr>
+    <tr>
+      <th>Policy Name</th>
+      <th>Type</th>
+      <th>Start</th>
+      <th>End</th>
+      <th>Premium</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let policy of policies">
+      <td>{{ policy.policyName }}</td>
+      <td>{{ policy.policyType }}</td>
+      <td>{{ policy.StartDate  }}</td>
+      <td>{{ policy.EndDate  }}</td>
+
+     
+      <td>{{ policy.premiumAmount }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<ng-template #noPolicies>
+  <p>No policies found.</p>
+</ng-template>
