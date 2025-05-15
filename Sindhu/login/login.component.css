@@ -1,0 +1,120 @@
+/* Ensure the entire page is covered */
+html, body {
+  height: 100%; /* Full height for html and body */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+}
+
+/* Background image on the full page */
+:host {
+  display: flex;
+  justify-content: flex-start; /* Align the form to the left */
+  align-items: center; /* Vertically center the form */
+  height: 100vh; /* Full height of the viewport */
+  width: 100%; /* Full width of the page */
+  background: url('C:/Micron_project/insurance-policy-app/src/assets/WhatsApp Image 2025-04-24 at 00.46.08_3bbdfc79.jpg') no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+/* Login form container */
+.container {
+  width: 400px;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-left: 50px;
+  position: relative;
+  z-index: 1;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+/* Form header */
+h2 {
+  text-align: center;
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 1rem;
+}
+
+/* Form styling */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+  form > div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+  }
+
+label {
+  font-weight: 500;
+  margin-right: 15px;
+  color: #444;
+  width: 120px;
+  text-align: right;
+}
+
+input, select {
+  padding: 10px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #f9f9f9;
+  flex: 1;
+}
+
+  input:focus, select:focus {
+    border-color: #007bff;
+    outline: none;
+    background-color: #fff;
+  }
+
+/* Submit button */
+button {
+  background-color: #007bff;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 16px;
+  align-self: center;
+  width: 100%;
+}
+
+  button:hover {
+    background-color: #0056b3;
+  }
+
+/* Style for error message */
+.error-message {
+  color: red;
+  font-size: 0.875rem;
+  margin-top: -0.5rem;
+  width: 100%;
+  text-align: center;
+}
+
+/* Style for register link */
+a {
+  color: #007bff;
+  text-decoration: none;
+  text-align: center;
+  display: block;
+  width: 100%;
+}
+
+  a:hover {
+    text-decoration: underline;
+  }
